@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+    var event_key_response = 'message';
+    var vkdPath = "1.vkd";
+    var keyIndex = 1;
+
+    function ClearAll() {
+        Result.value = "";
+        keyResult.value = "";
+    }
+
+    window.addEventListener(event_key_response,
+    function (message) {
+        var eventeKy = message.data
+        if(eventeKy.messageType == "KeyEvent"){
+        keyResult.value = JSON.stringify(eventeKy);
+        }
+    }, false);
+
+    // 获取版本
+    async function TestGetVersion() {
+        var ret;
+		
+        console.log("TestGetVersion begin");
+
+        // Initialize(TestGetVersion);
+
+        // if (value == undefined) {
+            Result.value = "";
+            try {
+                ret = await GetVersion();
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "获取版本失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestOpenDevice() {
+        var ret;
+		
+        console.log("TestOpenDevice begin");
+
+
+            Result.value = "";
+            try {
+                ret = await OpenDevice(0,'C://Users//87109//Desktop//admin.vkd');
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "打开设备失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+            return await TestGetKeyId()
+        // }
+
+        // Finalize();
+    }
+
+    async function TestCloseDevice() {
+        var ret;
+		
+        console.log("TestCloseDevice begin");
+
+
+            Result.value = "";
+            try {
+                ret = await CloseDevice();
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "关闭设备失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestVerifyPin() {
+        var ret;
+		
+        console.log("TestVerifyPin begin");
+
+
+            Result.value = "";
+            try {
+                ret = await VerifyPin(2,'');
+                ret = await VerifyPin(1,'');
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "验证设备失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestGetKeyId() {
+        var ret;
+		
+        console.log("TestGetKeyId begin");
+
+
+            Result.value = "";
+            try {
+                ret = await GetKeyId(1);
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "获取设备标识失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+            return ret
+        // Finalize();
+    }
+
+    async function TestSignData() {
+        var ret;
+		
+        console.log("TestSignData begin");
+
+
+            Result.value = "";
+            try {
+                ret = await SignData(1,"48329f4a-2043-4043-8111-125e11d27298");
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "签名失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestKeyRequset() {
+        var ret;
+		
+        console.log("TestKeyRequset begin");
+
+
+            Result.value = "";
+            try {
+                ret = await KeyRequset('','dqyt.inssec');
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "密钥申请失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestWriteKey() {
+        var ret;
+		
+        console.log("TestWriteKey begin");
+
+
+            Result.value = "";
+            try {
+                ret = await WriteKey(1,'inssec');
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "密钥写入失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestModifyPin() {
+        var ret;
+		
+        console.log("TestModifyPin begin");
+
+
+            Result.value = "";
+            try {
+                ret = await ModifyPin(2,'12345678','11111111');
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "修改PIN失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestGetPinResetReq() {
+        var ret;
+		
+        console.log("TestGetPinResetReq begin");
+
+
+            Result.value = "";
+            try {
+                ret = await GetPinResetReq();
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "PIN重置申请失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestResetPin() {
+        var ret;
+		
+        console.log("TestResetPin begin");
+
+
+            Result.value = "";
+            try {
+                ret = await ResetPin('12345678','11111111');
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "PIN重置失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+    async function TestgetUUID(){
+        var ret;
+		
+        console.log("TestgetUUID begin");
+
+
+            Result.value = "";
+            try {
+                ret = await getUUID();
+                console.log(ret)
+            }
+            catch (e) {
+                console.log(e);
+                Result.value = "PIN重置申请失败:" + ret + "\n" + e.message;
+            }
+        //     return;
+        // }
+
+        // if (IsResponseVersion(value)) {
+            Result.value = "操作结果:" + ret;
+        // }
+
+        // Finalize();
+    }
+
+
+    
+</script>
+<head>
+    <title>Ipk FireFox扩展测试</title>
+    <script type="text/javascript" src="./ipk_firefox_extension.js"></script>
+</head>
+
+<body>
+    <text id="IpkNativeMessageApp"></text>
+
+    <p align="center"><b>
+            <font size="5" color="#0000ff">Ipk 控件demo</font>
+        </b></p>
+    <table border="1" width="100%" cellpadding="10">
+        <tr>
+            <td width="30%" valign="top" border="5" style="FONT-WEIGHT: bold">
+                <P style="COLOR: mediumblue"> 扩展测试：</P>
+                <P style="COLOR: mediumblue"></P>
+                <input type="button" style="width:200px;height:50px" value="获取控件版本号" name="GetVersion" id="GetVersion"
+                    LANGUAGE=javascript onclick="return TestGetVersion()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="选择密钥设备类型" name="OpenDevice" id="OpenDevice"
+                    LANGUAGE=javascript onclick="return TestOpenDevice()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="获取设备标识" name="GetKeyId" id="GetKeyId"
+                    LANGUAGE=javascript onclick="return TestGetKeyId()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="验证pin码" name="VerifyPin" id="VerifyPin"
+                    LANGUAGE=javascript onclick="return TestVerifyPin()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="获取随机数UUID" name="getUUID" id="getUUID"
+                    LANGUAGE=javascript onclick="return TestgetUUID()"><br><br>    
+                <input type="button" style="width:200px;height:50px" value="设备签名" name="SignData" id="SignData"
+                    LANGUAGE=javascript onclick="return TestSignData()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="关闭设备" name="CloseDevice" id="CloseDevice"
+                    LANGUAGE=javascript onclick="return TestCloseDevice()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="修改PIN" name="ModifyPin" id="ModifyPin"
+                    LANGUAGE=javascript onclick="return TestModifyPin()"><br><br>
+                
+                <input type="button" style="width:200px;height:50px" value="密钥申请" name="KeyRequset" id="KeyRequset"
+                    LANGUAGE=javascript onclick="return TestKeyRequset()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="密钥写入" name="WriteKey" id="WriteKey"
+                    LANGUAGE=javascript onclick="return TestWriteKey()"><br><br>
+                
+                <input type="button" style="width:200px;height:50px" value="PIN重置申请" name="GetPinResetReq" id="GetPinResetReq"
+                    LANGUAGE=javascript onclick="return TestGetPinResetReq()"><br><br>
+                <input type="button" style="width:200px;height:50px" value="PIN重置" name="ResetPin" id="ResetPin"
+                    LANGUAGE=javascript onclick="return TestResetPin()"><br><br
+            </td>
+            <td width="50%" valign="top" border="0">
+                <div style="OVERFLOW-Y: auto;  WIDTH: 788px; HEIGHT: 789px" id=DIV1>
+                    <p>操作结果：</p>
+                    <P>
+                        <TEXTAREA id="Result" style="COLOR: mediumblue" name=Result rows=16 cols=64></TEXTAREA>
+                        <br><br>
+                    </P>
+                    <p>Ukey插拔事件：</p>
+                    <P>
+                        <TEXTAREA id="keyResult" style="COLOR: rgb(216, 18, 117)" name=keyResult rows=8 cols=64></TEXTAREA>
+                    </P>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

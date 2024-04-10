@@ -1,0 +1,156 @@
+<!--
+ * @Date: 2022-09-05 15:47:08
+ * @LastEditors: zhusisheng zhusisheng@shenhaoinfo.com
+ * @LastEditTime: 2023-08-21 14:05:39
+ * @FilePath: \robot_outdoor_e_vue3\public\hclib\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: Monospace;
+            background-color: #000000;
+            margin: 0px;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .monitor-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .monitor-container .windows {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="./hkCodeBase/jquery-1.7.1.min.js"></script>
+    <script id="videonode" src="./hkCodeBase/webVideoCtrl.js"></script>
+</head>
+
+<body>
+    <div class="monitor-container">
+        <div class="windows" id="divPlugin1"></div>
+    </div>
+    <script type="module">
+        import HcPluginController from './constructor/hcPluginController.js'
+        const ctrlCenter = new HcPluginController({ele: 'divPlugin1'})
+        window.addEventListener('message', async messageEvent => {
+            if (messageEvent.source != window.parent.window.parent) return;
+            // console.log('iframe - get msg:', messageEvent);
+            const {connectType, connectId, params = null} = messageEvent.data;
+            try {
+                let resData = null
+                console.log(`plugin receive ${connectType}>>>>> start`, params)
+                switch (connectType) {
+                    case 'initPlugin':
+                        resData = await ctrlCenter.initPlugin()
+                        break;
+                    case 'resize':
+                        resData = await ctrlCenter.resize(params)
+                        break;
+                    case 'changeWndNum':
+                        resData = await ctrlCenter.changeWndNum(params.iType)
+                        break;
+                    case 'login':
+                        resData = await ctrlCenter.login(params)
+                        break;
+                    case 'GetDigitalChannelInfo':
+                        resData = await ctrlCenter.GetDigitalChannelInfo(params)
+                        break;
+                    case 'I_StartRealPlay':
+                        resData = await ctrlCenter.I_StartRealPlay(params)
+                        break;
+                    case 'I_Stop':
+                        resData = await ctrlCenter.I_Stop(params)
+                        break;
+                    case 'I_GetWindowStatus':
+                        resData = await ctrlCenter.I_GetWindowStatus(params)
+                        break;
+                    case 'I_GetLocalCfg':
+                        resData = await ctrlCenter.I_GetLocalCfg()
+                        break;
+                    case 'I_SetLocalCfg':
+                        resData = await ctrlCenter.I_SetLocalCfg(params)
+                        break;
+                    case 'I_OpenFileDlg':
+                        resData = await ctrlCenter.I_OpenFileDlg()
+                        break;
+                    case 'startRecord':
+                        resData = await ctrlCenter.startRecord()
+                        break;
+                    case 'endRecord':
+                        resData = await ctrlCenter.endRecord()
+                        break;
+                    case 'I_CapturePic':
+                        resData = await ctrlCenter.I_CapturePic(params)
+                    case 'I_StartPlayback':
+                        resData = await ctrlCenter.I_StartPlayback(params)
+                        break;
+                    case 'I_PTZControl':
+                        resData = await ctrlCenter.I_PTZControl(params)
+                        break;
+                    case 'I_GoPreset':
+                        resData = await ctrlCenter.I_GoPreset(params)
+                        break;
+                    case 'I_SetPreset':
+                        resData = await ctrlCenter.I_SetPreset(params)
+                        break;
+                    case 'I_SetPlayModeType':
+                        resData = await ctrlCenter.I_SetPlayModeType(params)
+                        break;
+                    case 'I_SetSnapDrawMode':
+                        resData = await ctrlCenter.I_SetSnapDrawMode(params)
+                        break;
+                    case 'AddSnapPolygon':
+                        resData = await ctrlCenter.AddSnapPolygon(params)
+                        break;
+                    case 'I_GetSnapPolygonInfo':
+                        resData = await ctrlCenter.I_GetSnapPolygonInfo(params)
+                        break;
+                    case 'I_PlayFast':
+                        resData = await ctrlCenter.I_PlayFast(params)
+                        break;
+                    case 'I_PlaySlow':
+                        resData = await ctrlCenter.I_PlaySlow(params)
+                        break;
+                    default:
+                        break;
+                }
+                window.parent.postMessage({connectId, params: {succeed: true, data: resData}}, "*")
+            } catch (error) {
+                window.parent.postMessage({connectId, params: {succeed: false, error}}, "*")
+            }
+        })
+
+
+        // 窗口事件绑定
+        // $(window).bind({
+        //     resize: function () {
+        //         console.log('变化')
+        //         ctrlCenter.resize({})
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

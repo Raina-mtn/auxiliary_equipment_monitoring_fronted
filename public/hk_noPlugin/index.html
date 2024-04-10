@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html style="width: 100%; height:100%;">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+
+</head>
+
+<body style="width: 100%; height:100%; margin:0">
+    <div id="divPlugin" class="plugin" style="width: 100%; height: 100%"></div>
+</body>
+<style>
+    .draw-window {
+        border: none;
+    }
+</style>
+<script src="./codebase/jquery-1.7.1.min.js"></script>
+<script src="./codebase/encryption/AES.js"></script>
+<script src="./codebase/encryption/cryptico.min.js"></script>
+<!-- <script src="../codebase/encryption/encryption.js"></script> -->
+<script src="./codebase/encryption/crypto-3.1.2.min.js"></script>
+<script src="./codebase/jsPlugin-1.2.0.min.js"></script>
+<script id="videonode" src="./codebase/webVideoCtrl.js"></script>
+<script src="./index.js"></script>
+<script>
+
+    const divContainer = document.getElementById('divPlugin')
+    const {clientWidth, clientHeight} = divContainer
+    initPlugin(1, {width: clientWidth, height: clientHeight})
+    let loginSuccessArr = [], loginFailArr = []
+    window.iWndowType = 1 // 视频窗口类型
+    window.cameraList = [] // 视频播放列表
+    window.addEventListener('message', async (messageEvent) => {
+        if (messageEvent.source != window.parent.window.parent) return;
+        const {connectType, params} = messageEvent.data;
+
+        console.log(connectType, params);
+        // 初始化
+        if (connectType == 'init') {
+            const {cameraList, iWndowType, presetIndex, WebVideoCtrl} = params
+            if (iWndowType !== window.iWndowType) { // 一般从1开始，先不做兼容
+                window.iWndowType = iWndowType
+                changeWndNum(iWndowType)
+            }
+            window.cameraList = cameraList
+            const pageSize = window.iWndowType * window.iWndowType
+
+            const initQueue = cameraList.slice(0, pageSize).map((v, index) => async () => await initSigleCamera(v, index, presetIndex))
+            queue(initQueue)
+        }
+        // 登录全部
+        if (connectType == 'loginAll') {
+            const {cameraList, iWndowType} = params
+            const cameraNotLogin = cameraList.filter(v => loginSuccessArr.findIndex(l => `${l.ip}_${l.port}` == `${v.ip}_${v.port}`) === -1)
+            console.log(cameraNotLogin);
+            if (cameraNotLogin.length) {
+                const loginQueue = cameraNotLogin.map((camera => async () => await clickLogin(camera)))
+                queue(loginQueue)
+            }
+        }
+
+
+        // 预览单个摄像头
+        if (connectType == 'playSigleCamera') {
+            const {camera, win_index} = params
+
+            if (loginSuccessArr.some(v => v.ip === camera.ip)) {
+                playSigleCamera(camera, win_index)
+            } else {
+                initSigleCamera(camera, win_index)
+            }
+
+        }
+        // 回放
+        if (connectType == 'playBack') {
+            const {camera, win_index, startTime, endTime} = params
+            try {
+                await searchRecord({...camera, startTime, endTime})
+                await clickPlayBack({...camera, win_index, startTime, endTime})
+                sendMessage({
+                    connectType, params: {
+                        type: 'success'
+                    }
+                })
+            } catch (error) {
+                sendMessage({
+                    connectType, params: {
+                        type: 'fail',
+                        error
+                    }
+                })
+            }
+
+        }
+        // 云台控制
+        if (connectType === 'PTZControl') {
+            const {iPTZIndex, bStop} = params
+            console.log('>>>>>PTZControl', params);
+            PTZControl({iPTZIndex, bStop})
+        }
+        // 预置位设置
+        if (connectType === 'setPreset') {
+            const {iPresetID} = params
+            try {
+                setPreset(iPresetID)
+                sendMessage({connectType, params: 'success'})
+            } catch (error) {
+                sendMessage({connectType, params: 'fail'})
+            }
+
+        }
+        // 预置位跳转
+        if (connectType === 'goPreset') {
+            const {iPresetID} = params
+            try {
+                goPreset(iPresetID)
+                sendMessage({connectType, params: 'success'})
+            } catch (error) {
+                sendMessage({connectType, params: 'fail'})
+            }
+        }
+        // 停止播放
+        if (connectType === 'stop') {
+            clickStopRealPlay()
+        }
+        // 暂停/回复播放
+        if (connectType === 'togglePlay') {
+            const {playing} = params
+            togglePlay(playing)
+        }
+        // 加速
+        if (connectType === 'playFast') {
+            playChangeSpeed(true)
+        }
+        // 减速
+        if (connectType === 'playSlow') {
+            playChangeSpeed(false)
+        }
+        // 抓图
+        if (connectType === 'capture') {
+            const {camera} = params
+            capturePic(camera)
+        }
+        // 抓图
+        if (connectType === 'fullScreen') {
+            clickFullScreen()
+        }
+
+        if (connectType === 'changePage') {
+            const {pageIndex, pageSize} = params
+            const windowType = Math.sqrt(pageSize)
+            if (window.iWndowType !== windowType) {
+                console.log('windowType》》》', windowType);
+                window.iWndowType = windowType
+                changeWndNum(windowType)
+            }
+            // 播放视频
+            const loginQueue = window.cameraList.slice((pageIndex - 1) * pageSize, pageIndex * pageSize).map((v, index) => async () => await initSigleCamera(v, index))
+            console.log(loginQueue);
+            queue(loginQueue)
+        }
+
+
+        // 单个摄像头预览
+        function playSigleCamera(camera, win_index) {
+            return clickStartRealPlay({
+                ...camera,
+                win_index,
+                iChannelID: camera.channel
+            })
+        }
+        // 进入画面时初始化
+        async function initSigleCamera(camera, win_index, presetIndex) {
+            // 未登录，先登录
+            if (!loginSuccessArr.some(v => `${v.ip}_${v.port}` === `${camera.ip}_${camera.port}`)) {
+                try {
+                    await clickLogin(camera)
+                    loginSuccessArr.push(camera)
+                } catch (error) {
+                    loginFailArr.push(camera)
+                }
+            }
+            // 登录后预览
+            try {
+                await playSigleCamera(camera, win_index)
+            } catch (error) {
+                console.log(error);
+            }
+            if (presetIndex) {
+                goPreset(presetIndex)
+            }
+        }
+        // 构建异步执行队列
+        async function queue(arr) {
+            let res = []
+            for (let fn of arr) {
+                const data = await fn()
+                res.push(data)
+            }
+            sendMessage({connectType, params: 'success'})
+            return await res
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,555 @@
+{
+  "id": "4212699",
+  "name": "辅控",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5670464",
+      "name": "风速-大",
+      "font_class": "wind-speed-high",
+      "unicode": "e7e8",
+      "unicode_decimal": 59368
+    },
+    {
+      "icon_id": "6677858",
+      "name": "风向",
+      "font_class": "fengxiang",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "25716511",
+      "name": "降雨量",
+      "font_class": "jiangyuliang",
+      "unicode": "ea32",
+      "unicode_decimal": 59954
+    },
+    {
+      "icon_id": "1305048",
+      "name": "温度",
+      "font_class": "wendu",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "28606912",
+      "name": "大气湿度",
+      "font_class": "daqishidu",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
+      "icon_id": "37823068",
+      "name": "数据",
+      "font_class": "shuju",
+      "unicode": "e6d4",
+      "unicode_decimal": 59092
+    },
+    {
+      "icon_id": "37767338",
+      "name": "导出",
+      "font_class": "daochu",
+      "unicode": "e757",
+      "unicode_decimal": 59223
+    },
+    {
+      "icon_id": "37752496",
+      "name": "屏蔽",
+      "font_class": "pingbi",
+      "unicode": "e755",
+      "unicode_decimal": 59221
+    },
+    {
+      "icon_id": "37752497",
+      "name": "存储卡",
+      "font_class": "cunchuka",
+      "unicode": "e756",
+      "unicode_decimal": 59222
+    },
+    {
+      "icon_id": "37644269",
+      "name": "交换机",
+      "font_class": "jiaohuanji",
+      "unicode": "e754",
+      "unicode_decimal": 59220
+    },
+    {
+      "icon_id": "37644271",
+      "name": "网关机",
+      "font_class": "wangguanji",
+      "unicode": "e751",
+      "unicode_decimal": 59217
+    },
+    {
+      "icon_id": "37644270",
+      "name": "客户端",
+      "font_class": "kehuduan",
+      "unicode": "e752",
+      "unicode_decimal": 59218
+    },
+    {
+      "icon_id": "37644268",
+      "name": "服务器",
+      "font_class": "fuwuqi",
+      "unicode": "e753",
+      "unicode_decimal": 59219
+    },
+    {
+      "icon_id": "37644294",
+      "name": "断路器",
+      "font_class": "duanluqi",
+      "unicode": "e74b",
+      "unicode_decimal": 59211
+    },
+    {
+      "icon_id": "37644296",
+      "name": "变压器",
+      "font_class": "bianyaqi",
+      "unicode": "e74c",
+      "unicode_decimal": 59212
+    },
+    {
+      "icon_id": "37644295",
+      "name": "装备-无人机2",
+      "font_class": "zhuangbei-wurenji2",
+      "unicode": "e74d",
+      "unicode_decimal": 59213
+    },
+    {
+      "icon_id": "37644293",
+      "name": "门禁",
+      "font_class": "menjin1",
+      "unicode": "e74e",
+      "unicode_decimal": 59214
+    },
+    {
+      "icon_id": "37644292",
+      "name": "锁",
+      "font_class": "suo",
+      "unicode": "e74f",
+      "unicode_decimal": 59215
+    },
+    {
+      "icon_id": "37644291",
+      "name": "避雷器",
+      "font_class": "bileiqi",
+      "unicode": "e750",
+      "unicode_decimal": 59216
+    },
+    {
+      "icon_id": "37644236",
+      "name": "风机 (1)",
+      "font_class": "a-fengji1",
+      "unicode": "e74a",
+      "unicode_decimal": 59210
+    },
+    {
+      "icon_id": "37644255",
+      "name": "水浸 (1)",
+      "font_class": "a-shuijin1",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "37631576",
+      "name": "水位",
+      "font_class": "shuiwei1",
+      "unicode": "e748",
+      "unicode_decimal": 59208
+    },
+    {
+      "icon_id": "37535686",
+      "name": "微气象",
+      "font_class": "weiqixiang",
+      "unicode": "e746",
+      "unicode_decimal": 59206
+    },
+    {
+      "icon_id": "37535685",
+      "name": "温湿度_line",
+      "font_class": "wenshidu_line",
+      "unicode": "e747",
+      "unicode_decimal": 59207
+    },
+    {
+      "icon_id": "37180770",
+      "name": "照明",
+      "font_class": "zhaoming1",
+      "unicode": "e744",
+      "unicode_decimal": 59204
+    },
+    {
+      "icon_id": "37180771",
+      "name": "烟感",
+      "font_class": "yangan",
+      "unicode": "e745",
+      "unicode_decimal": 59205
+    },
+    {
+      "icon_id": "37180768",
+      "name": "o2",
+      "font_class": "o2",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
+      "icon_id": "37180774",
+      "name": "水泵",
+      "font_class": "shuibeng1",
+      "unicode": "e742",
+      "unicode_decimal": 59202
+    },
+    {
+      "icon_id": "37180769",
+      "name": "局放",
+      "font_class": "jufang",
+      "unicode": "e743",
+      "unicode_decimal": 59203
+    },
+    {
+      "icon_id": "37180781",
+      "name": "红外双鉴",
+      "font_class": "hongwaishuangjian1",
+      "unicode": "e738",
+      "unicode_decimal": 59192
+    },
+    {
+      "icon_id": "37180780",
+      "name": "防盗报主机",
+      "font_class": "fangdaobaozhuji",
+      "unicode": "e739",
+      "unicode_decimal": 59193
+    },
+    {
+      "icon_id": "37180779",
+      "name": "油色谱",
+      "font_class": "yousepu",
+      "unicode": "e73a",
+      "unicode_decimal": 59194
+    },
+    {
+      "icon_id": "37180778",
+      "name": "防御",
+      "font_class": "fangyu",
+      "unicode": "e73b",
+      "unicode_decimal": 59195
+    },
+    {
+      "icon_id": "37180776",
+      "name": "红外对射",
+      "font_class": "hongwaiduishe1",
+      "unicode": "e73c",
+      "unicode_decimal": 59196
+    },
+    {
+      "icon_id": "37180777",
+      "name": "空调",
+      "font_class": "kongtiao1",
+      "unicode": "e73d",
+      "unicode_decimal": 59197
+    },
+    {
+      "icon_id": "37180772",
+      "name": "接地电流",
+      "font_class": "jiedidianliu",
+      "unicode": "e73e",
+      "unicode_decimal": 59198
+    },
+    {
+      "icon_id": "37180775",
+      "name": "SF6",
+      "font_class": "SF6",
+      "unicode": "e73f",
+      "unicode_decimal": 59199
+    },
+    {
+      "icon_id": "37180773",
+      "name": "电子围栏@3x",
+      "font_class": "a-dianziweilan3x",
+      "unicode": "e740",
+      "unicode_decimal": 59200
+    },
+    {
+      "icon_id": "37100978",
+      "name": "绑定",
+      "font_class": "bangding",
+      "unicode": "e736",
+      "unicode_decimal": 59190
+    },
+    {
+      "icon_id": "37098373",
+      "name": "授权",
+      "font_class": "shouquan",
+      "unicode": "e72c",
+      "unicode_decimal": 59180
+    },
+    {
+      "icon_id": "37098352",
+      "name": "修改密码",
+      "font_class": "xiugaimima",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    },
+    {
+      "icon_id": "37098351",
+      "name": "详情",
+      "font_class": "xiangqing1",
+      "unicode": "e729",
+      "unicode_decimal": 59177
+    },
+    {
+      "icon_id": "37098349",
+      "name": "冻结",
+      "font_class": "dongjie",
+      "unicode": "e72a",
+      "unicode_decimal": 59178
+    },
+    {
+      "icon_id": "37098350",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e72b",
+      "unicode_decimal": 59179
+    },
+    {
+      "icon_id": "37098000",
+      "name": "类型",
+      "font_class": "leixing",
+      "unicode": "e725",
+      "unicode_decimal": 59173
+    },
+    {
+      "icon_id": "37097999",
+      "name": "编号",
+      "font_class": "bianhao",
+      "unicode": "e726",
+      "unicode_decimal": 59174
+    },
+    {
+      "icon_id": "37097998",
+      "name": "地址",
+      "font_class": "dizhi",
+      "unicode": "e727",
+      "unicode_decimal": 59175
+    },
+    {
+      "icon_id": "37097442",
+      "name": "状态",
+      "font_class": "zhuangtai",
+      "unicode": "e724",
+      "unicode_decimal": 59172
+    },
+    {
+      "icon_id": "36956152",
+      "name": "详情",
+      "font_class": "xiangqing",
+      "unicode": "e6e5",
+      "unicode_decimal": 59109
+    },
+    {
+      "icon_id": "36956158",
+      "name": "空调",
+      "font_class": "kongtiao",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "36956157",
+      "name": "门禁",
+      "font_class": "menjin",
+      "unicode": "e6cc",
+      "unicode_decimal": 59084
+    },
+    {
+      "icon_id": "36956156",
+      "name": "定位",
+      "font_class": "dingwei",
+      "unicode": "e6cd",
+      "unicode_decimal": 59085
+    },
+    {
+      "icon_id": "36956155",
+      "name": "公开 结果",
+      "font_class": "a-gongkaijieguo",
+      "unicode": "e6d2",
+      "unicode_decimal": 59090
+    },
+    {
+      "icon_id": "36956154",
+      "name": "配电箱",
+      "font_class": "peidianxiang",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "36956153",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "36955609",
+      "name": "Frame (5)",
+      "font_class": "video",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "36955604",
+      "name": "灭火控制",
+      "font_class": "miehuokongzhi1",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "36955605",
+      "name": "Frame",
+      "font_class": "refresh",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "36950079",
+      "name": "风机",
+      "font_class": "fengji",
+      "unicode": "e6d8",
+      "unicode_decimal": 59096
+    },
+    {
+      "icon_id": "36950076",
+      "name": "Frame",
+      "font_class": "image",
+      "unicode": "e6d9",
+      "unicode_decimal": 59097
+    },
+    {
+      "icon_id": "36950074",
+      "name": "Group 1455",
+      "font_class": "kuaijin",
+      "unicode": "e6da",
+      "unicode_decimal": 59098
+    },
+    {
+      "icon_id": "36950072",
+      "name": "水位",
+      "font_class": "shuiwei",
+      "unicode": "e6db",
+      "unicode_decimal": 59099
+    },
+    {
+      "icon_id": "36950071",
+      "name": "Frame (5)",
+      "font_class": "download",
+      "unicode": "e6dc",
+      "unicode_decimal": 59100
+    },
+    {
+      "icon_id": "36950070",
+      "name": "红外对射",
+      "font_class": "hongwaiduishe",
+      "unicode": "e6dd",
+      "unicode_decimal": 59101
+    },
+    {
+      "icon_id": "36950069",
+      "name": "照明",
+      "font_class": "zhaoming",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "36950068",
+      "name": "消防监测",
+      "font_class": "xiaofangjiance",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "36950094",
+      "name": "水泵",
+      "font_class": "shuibeng",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "36950092",
+      "name": "ic_waterimmersion_normal",
+      "font_class": "ic_waterimmersion_normal",
+      "unicode": "e6c3",
+      "unicode_decimal": 59075
+    },
+    {
+      "icon_id": "36950093",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
+      "icon_id": "36950091",
+      "name": "Frame的副本",
+      "font_class": "upload",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
+      "icon_id": "36950089",
+      "name": "Vector",
+      "font_class": "Vector",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "36950083",
+      "name": "ic_firing",
+      "font_class": "ic_firing",
+      "unicode": "e6d0",
+      "unicode_decimal": 59088
+    },
+    {
+      "icon_id": "36950088",
+      "name": "ic_o2_normal",
+      "font_class": "ic_o2_normal",
+      "unicode": "e6d1",
+      "unicode_decimal": 59089
+    },
+    {
+      "icon_id": "36950082",
+      "name": "Vector 6",
+      "font_class": "arrow-up",
+      "unicode": "e6d3",
+      "unicode_decimal": 59091
+    },
+    {
+      "icon_id": "36950073",
+      "name": "红外双鉴",
+      "font_class": "hongwaishuangjian",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "36950077",
+      "name": "Frame (7)",
+      "font_class": "done",
+      "unicode": "e6d6",
+      "unicode_decimal": 59094
+    },
+    {
+      "icon_id": "36950095",
+      "name": "Union",
+      "font_class": "Union",
+      "unicode": "e6c5",
+      "unicode_decimal": 59077
+    },
+    {
+      "icon_id": "36950097",
+      "name": "Frame (9)",
+      "font_class": "kuaitui",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    }
+  ]
+}

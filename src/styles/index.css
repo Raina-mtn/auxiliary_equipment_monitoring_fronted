@@ -1,0 +1,17 @@
+
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.screen-wrapper {
+    transition-duration: 0ms !important;
+}

@@ -1,0 +1,51 @@
+{
+  "name": "auxiliary_equipment_monitoring_fronted",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@vueuse/core": "^10.3.0",
+    "autofit.js": "^3.0.4",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.9",
+    "echarts": "^5.4.3",
+    "echarts-liquidfill": "^3.1.0",
+    "element-china-area-data": "^6.0.2",
+    "element-plus": "^2.3.9",
+    "lodash-es": "^4.17.21",
+    "nanoid": "^4.0.2",
+    "p-queue": "^7.3.4",
+    "pinia": "^2.1.6",
+    "pinia-plugin-persistedstate": "^3.2.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "qs": "^6.11.2",
+    "sm-crypto": "^0.3.12",
+    "three": "^0.156.1",
+    "three-css2drender": "^1.0.0",
+    "three-obj-mtl-loader": "^1.0.3",
+    "three-orbit-controls": "^82.1.0",
+    "three.interaction": "^0.2.3",
+    "v-scale-screen": "^2.2.0",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "vue-types": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "@types/three": "^0.157.2",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "sass": "^1.65.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-windicss": "^1.9.0",
+    "vue-tsc": "^1.8.5",
+    "windicss": "^3.5.6"
+  }
+}
